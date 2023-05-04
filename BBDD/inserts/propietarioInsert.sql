@@ -1,4 +1,5 @@
-select * from propietario;
+/*Kings League equipo 2*/
+/*Insercion del propietario*/
 INSERT INTO Propietario VALUES (DEFAULT,'11117111A', 'Ibai', 'Llanos', '', '123456789', 'ibai@mail.com');
 INSERT INTO Propietario VALUES (DEFAULT,'22322222B', 'Gerard', 'Romero', '', '234567890', 'gerard@mail.com');
 INSERT INTO Propietario VALUES (DEFAULT,'33378333C', 'Kun', 'Aguero', '', '345678901', 'kun@mail.com');
