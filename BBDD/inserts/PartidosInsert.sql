@@ -1,4 +1,4 @@
-/*Kings League equipo 2*/
+/*Kings League equipo 2 */
 /*Insercion del Partido*/
 /*Jornada 1*/
 
