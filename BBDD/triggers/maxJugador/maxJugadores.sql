@@ -1,7 +1,7 @@
 /*Kings League equipo 2*/
 /*Trigger que controla el maximo de jugadores*/
 CREATE OR REPLACE TRIGGER MAX_JUGADORES
-FOR INSERT OR UPDATE ON ContratoJugador 
+FOR INSERT OR UPDATE ON ContratoJugadores 
 COMPOUND TRIGGER
 
     /*Variables*/
@@ -13,19 +13,19 @@ COMPOUND TRIGGER
  BEGIN
     /*Select para sacar recuento de jugadores habituales de un equipo*/
     SELECT COUNT(*) INTO num_habituales
-    FROM ContratoJugador
+    FROM ContratoJugadores
     WHERE ID_EQUIPO = :NEW.ID_EQUIPO
     AND ID_JUG IN (SELECT ID_JUG 
-                   FROM JUGADOR WHERE UPPER(TIPO) = 'HABITUAL');
+                   FROM JUGADORES WHERE UPPER(TIPO) = 'HABITUAL');
 
     /*Select para sacar recuento de jugadores wildcard de un equipo*/
     SELECT COUNT(*) INTO num_wildcards
-    FROM ContratoJugador
+    FROM ContratoJugadores
     WHERE ID_EQUIPO = :NEW.ID_EQUIPO
     AND ID_JUG IN (SELECT ID_JUG 
-                   FROM JUGADOR WHERE UPPER(TIPO) = 'WILDCARD');
+                   FROM JUGADORES WHERE UPPER(TIPO) = 'WILDCARD');
         
-    SELECT TIPO INTO NEW_TIPO_JUG FROM JUGADOR WHERE ID_JUG = :NEW.ID_JUG;     
+    SELECT TIPO INTO NEW_TIPO_JUG FROM JUGADORES WHERE ID_JUG = :NEW.ID_JUG;     
     
  END BEFORE EACH ROW;
  AFTER EACH ROW IS
